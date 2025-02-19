@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let offsetX, offsetY, isDragging = false;
 
         element.addEventListener('mousedown', (e) => {
-            if (e.target.className === 'delete-note') return;  // Prevent dragging when clicking delete button
+            if (e.target.className === 'delete-note' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;  // Prevent dragging when clicking delete button or interacting with input fields
             isDragging = true;
             offsetX = e.clientX - element.getBoundingClientRect().left;
             offsetY = e.clientY - element.getBoundingClientRect().top;
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         element.addEventListener('touchstart', (e) => {
-            if (e.target.className === 'delete-note') return;  // Prevent dragging when clicking delete button
+            if (e.target.className === 'delete-note' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;  // Prevent dragging when clicking delete button or interacting with input fields
             isDragging = true;
             const touch = e.touches[0];
             offsetX = touch.clientX - element.getBoundingClientRect().left;
