@@ -96,16 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            element.style.zIndex = '';
-            saveNotes();
+        document.addEventListener('mouseup', (e) => {
+            if (isDragging) {
+                isDragging = false;
+                element.style.zIndex = '';
+                saveNotes();
+                e.preventDefault(); // Prevent default behavior
+            }
         });
 
-        document.addEventListener('touchend', () => {
-            isDragging = false;
-            element.style.zIndex = '';
-            saveNotes();
+        document.addEventListener('touchend', (e) => {
+            if (isDragging) {
+                isDragging = false;
+                element.style.zIndex = '';
+                saveNotes();
+                e.preventDefault(); // Prevent default behavior
+            }
         });
     }
 
