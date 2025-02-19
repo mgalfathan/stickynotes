@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpn') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.note {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-size: 14px;
+}
+.note-title {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    outline: none;
+    text-align: center;
+}
+
+.note textarea {
+    width: 100%;
+    height: calc(100% - 60px); /* Adjust height to make space for the title and delete button */
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    color: black;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.delete-note {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    left: 190px;
+    background-color: white;
+    color: black;
+    border: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;  /* Vertically centers the "×" */
+    justify-content: center;  /* Horizontally centers the "×" */
+    font-size: 10px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.delete-note:hover {
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+}
