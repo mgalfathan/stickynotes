@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.zIndex = 1000;
         });
 
+        element.addEventListener('touchstart', (e) => {
+            if (e.target.className === 'delete-note') return;  // Prevent dragging when clicking delete button
+            isDragging = true;
+            const touch = e.touches[0];
+            offsetX = touch.clientX - element.getBoundingClientRect().left;
+            offsetY = touch.clientY - element.getBoundingClientRect().top;
+            element.style.zIndex = 1000;
+        });
+
         document.addEventListener('mousemove', (e) => {
             if (isDragging) {
                 const x = e.clientX - offsetX;
@@ -73,7 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                const touch = e.touches[0];
+                const x = touch.clientX - offsetX;
+                const y = touch.clientY - offsetY;
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+            }
+        });
+
         document.addEventListener('mouseup', () => {
+            isDragging = false;
+            element.style.zIndex = '';
+            saveNotes();
+        });
+
+        document.addEventListener('touchend', () => {
             isDragging = false;
             element.style.zIndex = '';
             saveNotes();
