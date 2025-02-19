@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             offsetX = e.clientX - element.getBoundingClientRect().left;
             offsetY = e.clientY - element.getBoundingClientRect().top;
             element.style.zIndex = 1000;
+            e.preventDefault(); // Prevent default behavior
         });
 
         element.addEventListener('touchstart', (e) => {
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             offsetX = touch.clientX - element.getBoundingClientRect().left;
             offsetY = touch.clientY - element.getBoundingClientRect().top;
             element.style.zIndex = 1000;
+            e.preventDefault(); // Prevent default behavior
         });
 
         document.addEventListener('mousemove', (e) => {
@@ -79,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - offsetY;
                 element.style.left = `${x}px`;
                 element.style.top = `${y}px`;
+                e.preventDefault(); // Prevent default behavior
             }
         });
 
@@ -89,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = touch.clientY - offsetY;
                 element.style.left = `${x}px`;
                 element.style.top = `${y}px`;
+                e.preventDefault(); // Prevent default behavior
             }
         });
 
